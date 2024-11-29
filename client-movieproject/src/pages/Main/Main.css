@@ -14,21 +14,24 @@
   padding: 1rem;
   overflow-y: auto;
 }
-.Main .container .navigation {
-  height: 80px;
-  background-color: #15171b;
-  width: 100%;
-}
+
 .Main .container .navigation ul {
-  list-style: none;
-  overflow: hidden;
-  padding: 0;
-  margin: 0;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 80px;
+  height: 2000px;
+  background-color: #121212; 
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  border-right: 1px solid #333;
 }
 
 .Main .container .navigation ul li {
   padding: 0px 60px;
+  margin: 0;
   height: 80px;
   display: flex;
   flex-direction: column;
@@ -43,8 +46,7 @@
 }
 .Main .container .navigation ul li.active a,
 .Main .container .navigation ul li:hover a {
-  text-decoration: none;
-  color: white;
+  color: #f1f1f1;
 }
 .Main .container .navigation ul li.active,
 .Main .container .navigation ul li:hover {

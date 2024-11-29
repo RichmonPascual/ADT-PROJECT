@@ -1,5 +1,8 @@
+.main-container{
+ margin-left: 135px;
+}
 .page-title {
-  font-size: 4.5rem;
+  font-size: 3rem;
 }
 .list-container {
   display: flex;
@@ -9,9 +12,11 @@
 }
 
 .featured-list-container {
-  width: 100%;
-  margin-bottom: 5rem;
-  aspect-ratio: 16 / 9;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  aspect-ratio: 16/9;
 }
 .featured-backdrop {
   height: 100%;
@@ -26,34 +31,4 @@
   width: 100%;
   padding: 2rem;
 }
-.navbar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  background-color: #0b0c10;
-  padding: 10px;
-}
 
-
-.tab {
-  border: 1px solid #f39c12; 
-  border-radius: 20px;      
-  padding: 10px 20px;
-  background-color: transparent; 
-  color: #f39c12; 
-  font-size: 14px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.tab:hover {
-  background-color: #f39c12;
-  color: #0b0c10;
-}
-
-.tab.active {
-  background-color: #f39c12;
-  color: #0b0c10;           
-  font-weight: bold;
-}
