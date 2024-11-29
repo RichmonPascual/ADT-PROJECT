@@ -37,39 +37,47 @@ const Home = () => {
   }, [featuredMovie]);
 
   return (
-    <div className='main-container'>
-      <h1 className='page-title'>Movies</h1>
-      {featuredMovie && movieList.length ? (
-        <div className='featured-list-container'>
-          <div
-            className='featured-backdrop'
-            style={{
-              background: `url(${
-                featuredMovie.backdropPath !==
-                'https://image.tmdb.org/t/p/original/undefined'
-                  ? featuredMovie.backdropPath
-                  : featuredMovie.posterPath
-              }) no-repeat center top`,
-            }}
-          >
-            <span className='featured-movie-title'>{featuredMovie.title}</span>
-          </div>
-        </div>
-      ) : (
-        <div className='featured-list-container-loader'></div>
-      )}
-      <div className='list-container'>
-        {movieList.map((movie) => (
-          <>
-            <MovieCards
-              movie={movie}
-              onClick={() => {
-                navigate(`/view/${movie.id}`);
-                setMovie(movie);
+    <div>
+      <div className='navbar'>
+        <button class="tab active">Action</button>
+        <button class="tab">Adventure</button>
+        <button class="tab">Drama</button>
+        <button class="tab">Comedy</button>
+        <button class="tab">More</button>
+      </div>
+      <div className='main-container'>
+        <h1 className='page-title'>Movies</h1>
+        {featuredMovie && movieList.length ? (
+          <div className='featured-list-container'>
+            <div
+              className='featured-backdrop'
+              style={{
+                background: `url(${featuredMovie.backdropPath !==
+                    'https://image.tmdb.org/t/p/original/undefined'
+                    ? featuredMovie.backdropPath
+                    : featuredMovie.posterPath
+                  }) no-repeat center top`,
               }}
-            />
-          </>
-        ))}
+            >
+              <span className='featured-movie-title'>{featuredMovie.title}</span>
+            </div>
+          </div>
+        ) : (
+          <div className='featured-list-container-loader'></div>
+        )}
+        <div className='list-container'>
+          {movieList.map((movie) => (
+            <>
+              <MovieCards
+                movie={movie}
+                onClick={() => {
+                  navigate(`/view/${movie.id}`);
+                  setMovie(movie);
+                }}
+              />
+            </>
+          ))}
+        </div>
       </div>
     </div>
   );
