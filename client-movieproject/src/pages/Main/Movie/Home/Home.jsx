@@ -57,7 +57,15 @@ const Home = () => {
         ) : (
           <div className='featured-list-container-loader'></div>
         )}
-        <h1 className='page-title'>Movies</h1>
+        <br></br>
+        <div className='genre-con'>
+          <button class="tab active">Action</button>
+          <button class="tab">Adventure</button>
+          <button class="tab">Drama</button>
+          <button class="tab">Comedy</button>
+          <button class="tab">More</button>
+        </div>
+        <br></br>
         <div className='list-container'>
           {movieList.map((movie) => (
             <>

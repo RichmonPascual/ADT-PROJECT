@@ -1,5 +1,13 @@
 .main-container{
- margin-left: 135px;
+  padding: 20px;
+  color: #fff;
+  width: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0px;
+  font-family: 'Arial', sans-serif;
 }
 .page-title {
   font-size: 3rem;
@@ -8,15 +16,18 @@
   display: flex;
   flex-wrap: wrap;
   flex: 1;
-  gap: 1rem;
+  gap: 2rem;
+  padding: 10px;
 }
+
+
 
 .featured-list-container {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
   width: 80%;
   aspect-ratio: 16/9;
+  align-items: center;
+  justify-content: center;
 }
 .featured-backdrop {
   height: 100%;
@@ -25,10 +36,38 @@
   display: flex;
   align-items: end;
 }
+
 .featured-movie-title {
   font-weight: bold;
   font-size: 3rem;
   width: 100%;
   padding: 2rem;
+  border-color: #fff;
 }
 
+.genre-con{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+}
+.tab{
+  border: 1px solid #f39c12; /* Orange border */
+  border-radius: 20px;       /* Rounded corners */
+  padding: 10px 20px;
+  background-color: transparent; /* Transparent background */
+  color: #f39c12; /* Orange text */
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.tab:hover{
+  background-color: #f39c12;
+  color: #0b0c10;
+}
+.tab:active{
+  background-color: #f39c12; /* Orange background */
+  color: #0b0c10;           /* Dark text */
+  font-weight: bold;
+}

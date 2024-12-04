@@ -5,7 +5,6 @@ import axios from 'axios';
 
 function View() {
   const { movie, setMovie } = useMovieContext();
-
   const { movieId } = useParams();
   const navigate = useNavigate();
 
@@ -35,10 +34,14 @@ function View() {
             {JSON.stringify(movie)}
           </div>
 
-          {movie.casts && movie.casts.length && (
-            <div>
-              <h1>Cast & Crew</h1>
-              {JSON.stringify(movie.casts)}
+          {movie.casts && movie.casts.length > 0 && (
+            <div className="section">
+              <h2>Cast & Crew</h2>
+              <ul className="cast-list">
+                {movie.casts.map((cast, index) => (
+                  <li key={index}>{cast.name}</li>
+                ))}
+              </ul>
             </div>
           )}
 
