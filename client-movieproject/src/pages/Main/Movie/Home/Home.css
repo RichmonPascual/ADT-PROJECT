@@ -7,11 +7,10 @@
   align-items: center;
   justify-content: center;
   margin-right: 0px;
-  font-family: 'Arial', sans-serif;
-  
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .page-title {
-  font-size: 3rem;
+  font-size: 5px;
 }
 .list-container {
   display: flex;
@@ -42,6 +41,7 @@
   width: 100%;
   padding: 2rem;
   border-color: #fff;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .genre-con{
@@ -52,11 +52,11 @@
   padding: 10px;
 }
 .tab{
-  border: 1px solid #f39c12; /* Orange border */
-  border-radius: 20px;       /* Rounded corners */
+  border: 1px solid #f39c12; 
+  border-radius: 20px;      
   padding: 10px 20px;
-  background-color: transparent; /* Transparent background */
-  color: #f39c12; /* Orange text */
+  background-color: transparent;
+  color: #f39c12; 
   font-size: 20px;
   cursor: pointer;
   transition: all 0.3s ease;

@@ -4,6 +4,10 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background: rgb(0,0,0);
+  background: linear-gradient(109.6deg, rgb(6, 2, 2) 32.4%, rgb(19, 1, 4) 98.8% ) ;
+  background-size: cover;
+  position: relative;
 }
 .form-container {
     padding: 4rem 5rem;

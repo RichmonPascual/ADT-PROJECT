@@ -1,7 +1,8 @@
 .Main {
   display: flex;
   overflow: hidden;
-  
+  background: rgb(0,0,0);
+  background: linear-gradient(109.6deg, rgb(6, 2, 2) 32.4%, rgb(19, 1, 4) 98.8%);
 }
 .Main .container {
   display: flex;
@@ -17,12 +18,18 @@
 }
 
 .Main .container .navigation ul {
+  position: fixed;
+  width: 147px;
+  height: 100vh;
+  background-color: #000000; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin: 0;
   padding: 0;
-  width: 150px;
-  background-color: #f1f1f1;
-  position: fixed;
-  height: 100%;
+  gap: 15px;
+  border-right: 2px solid rgb(37, 37, 37);
+  color: red;
 }
 .Main .container .navigation ul li {
   padding: 0px 60px;
@@ -37,28 +44,37 @@
   font-weight: bold;
   margin: 0 15px;
 }
-.Main .container .navigation ul li a {
+.Main .container .navigation ul li h1 {
   text-decoration: none;
-  color: #070000;
+  color: red;
 }
 .Main .container .navigation ul li.active a,
 .Main .container .navigation ul li:hover a {
-  color: #f1f1f1;
+  color: red; 
+  
 }
 .Main .container .navigation ul li.active,
 .Main .container .navigation ul li:hover {
   background: #353a43;
+  border-radius: 20px;
+  width: 0;
+  display: flex;
 }
 .Main .container .navigation ul li a {
-  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 50px;
+  height: 50px;
 }
 
 .Main .container .navigation ul li.logout,
 .Main .container .navigation ul li.login {
   cursor: pointer;
-  justify-self: end;
+  color: white;
 }
+
 .Main .container .navigation ul li.logout{
-  margin-left: auto;
-  margin-top: 600px;
+  margin-top: 230px;
 }

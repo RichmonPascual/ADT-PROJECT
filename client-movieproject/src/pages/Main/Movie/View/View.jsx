@@ -49,17 +49,29 @@ function View() {
             </div>
           )}
 
-          {movie.videos && movie.videos.length && (
-            <div>
-              <h1>Videos</h1>
-              {JSON.stringify(movie.videos)}
+          {/* Videos */}
+          {movie.videos && movie.videos.length > 0 && (
+            <div className="section">
+              <h2>Videos</h2>
+              <div className="video-gallery">
+                {movie.videos.map((video, index) => (
+                  <video key={index} controls>
+                    <source src={video.url} type="video/mp4" />
+                  </video>
+                ))}
+              </div>
             </div>
           )}
 
-          {movie.photos && movie.photos.length && (
-            <div>
-              <h1>Photos</h1>
-              {JSON.stringify(movie.photos)}
+          {/* Photos */}
+          {movie.photos && movie.photos.length > 0 && (
+            <div className="section">
+              <h2>Photos</h2>
+              <div className="photo-gallery">
+                {movie.photos.map((photo, index) => (
+                  <img key={index} src={photo.url} alt={`Movie Photo ${index + 1}`} />
+                ))}
+              </div>
             </div>
           )}
         </>
