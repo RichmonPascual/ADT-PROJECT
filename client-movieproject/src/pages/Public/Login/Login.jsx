@@ -1,8 +1,9 @@
 import { useState, useRef, useCallback, useEffect } from 'react';
 import './Login.css';
 import { useNavigate } from 'react-router-dom';
-import { useDebounce } from '../../../utils/hooks/useDebounce';
+import { useDebounce } from '../../../utils/hooks/useDebounce.jsx';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -43,10 +44,11 @@ function Login() {
   const handleLogin = async () => {
     const data = { email, password };
     setStatus('loading');
+    console.log(data);
 
     await axios({
       method: 'post',
-      url: '/admin/login',
+      url: '/user/login',
       data,
       headers: { 'Access-Control-Allow-Origin': '*' },
     })
@@ -54,7 +56,7 @@ function Login() {
         console.log(res);
         //store response access token to localstorage
         localStorage.setItem('accessToken', res.data.access_token);
-        navigate('/main/movies');
+        navigate('/');
         setStatus('idle');
       })
       .catch((e) => {
@@ -135,9 +137,9 @@ function Login() {
               </button>
             </div>
             <div className='register-container'>
-              <a href='/register'>
+              <Link to='/register'>
                 <small>Register</small>
-              </a>
+              </Link>
             </div>
           </div>
         </form>

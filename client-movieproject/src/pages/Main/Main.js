@@ -7,6 +7,7 @@ function Main() {
   const navigate = useNavigate();
   const handleLogout = () => {
     localStorage.removeItem('accessToken');
+    navigate('/login');
   };
 
   useEffect(() => {
@@ -32,7 +33,7 @@ function Main() {
               </li>
             ) : (
               <li className='login'>
-                <a onClick={() => alert('Go to Login page')}>Login</a>
+                <a onClick={() => navigate('/login')}>Login</a>
               </li>
             )}
           </ul>

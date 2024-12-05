@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useMovieContext } from '../../../../context/MovieContext';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
+import './View.css';
 
 function View() {
   const { movie, setMovie } = useMovieContext();
@@ -23,15 +24,18 @@ function View() {
     return () => {};
   }, [movieId]);
   return (
-    <>
+    <div className='main-container'>
       {movie && (
         <>
-          <div>
-            <div className='banner'>
-              <h1>{movie.title}</h1>
+          <div className="movie-banner" style={{ backgroundImage: `url(${movie.bannerImage || ''})` }}>
+            <div className="banner-overlay">
+              <h1 className="movie-title">{movie.title}</h1>
             </div>
-            <h3>{movie.overview}</h3>
-            {JSON.stringify(movie)}
+          </div>
+
+          {/* Movie Details */}
+          <div className="movie-details">
+            <h3 className="movie-overview">{movie.overview}</h3>
           </div>
 
           {movie.casts && movie.casts.length > 0 && (
@@ -60,7 +64,7 @@ function View() {
           )}
         </>
       )}
-    </>
+    </div>
   );
 }
 

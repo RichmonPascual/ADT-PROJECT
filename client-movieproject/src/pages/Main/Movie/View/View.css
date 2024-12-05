@@ -1,3 +1,13 @@
+.main-container{
+    margin-left: 170px; /* Same width as sidebar */
+    padding: 20px;
+}
 .banner{
-    margin-left: auto;
+    margin-left: 250px;
+    display: none;
+    width: 100%;
+}
+.movie-title{
+    margin-right: 1000px;
+   
 }

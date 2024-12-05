@@ -1,9 +1,17 @@
-.main-container {
+.Login{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
 .form-container {
@@ -27,9 +35,6 @@
   width: 70px;
   margin-right: 8px;
   text-align: left;
-}
-.login.errors {
-  margin-bottom: 1rem;
 }
 .errors {
   color: red;

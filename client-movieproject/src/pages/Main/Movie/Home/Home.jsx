@@ -4,6 +4,8 @@ import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import MovieCards from '../../../../components/MovieCards/MovieCards';
 import { useMovieContext } from '../../../../context/MovieContext';
+
+
 const Home = () => {
   const accessToken = localStorage.getItem('accessToken');
   const navigate = useNavigate();

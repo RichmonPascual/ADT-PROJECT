@@ -8,6 +8,7 @@
   justify-content: center;
   margin-right: 0px;
   font-family: 'Arial', sans-serif;
+  
 }
 .page-title {
   font-size: 3rem;
@@ -16,11 +17,9 @@
   display: flex;
   flex-wrap: wrap;
   flex: 1;
-  gap: 2rem;
+  gap: 3rem;
   padding: 10px;
 }
-
-
 
 .featured-list-container {
   display: block;

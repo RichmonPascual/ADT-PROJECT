@@ -1,9 +1,7 @@
 .Main {
   display: flex;
   overflow: hidden;
-  background: #8E0E00;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to top, #1F1C18, #8E0E00);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to top, #1F1C18, #8E0E00); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
 }
 .Main .container {
   display: flex;
@@ -19,14 +17,12 @@
 }
 
 .Main .container .navigation ul {
-  list-style: none;
-  overflow: hidden;
-  padding: 0;
   margin: 0;
-  display: flex;
-  background-color: #000;
-  height: 80px;
-  
+  padding: 0;
+  width: 150px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
 }
 .Main .container .navigation ul li {
   padding: 0px 60px;
@@ -43,7 +39,7 @@
 }
 .Main .container .navigation ul li a {
   text-decoration: none;
-  color: #61dafb;
+  color: #070000;
 }
 .Main .container .navigation ul li.active a,
 .Main .container .navigation ul li:hover a {
@@ -61,4 +57,8 @@
 .Main .container .navigation ul li.login {
   cursor: pointer;
   justify-self: end;
+}
+.Main .container .navigation ul li.logout{
+  margin-left: auto;
+  margin-top: 600px;
 }
