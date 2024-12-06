@@ -81,10 +81,10 @@ function Login() {
             {error && <span className='login errors'>{error}</span>}
             <div>
               <div className='form-group'>
-                <label>E-mail:</label>
                 <input
                   type='text'
                   name='email'
+                  placeholder='Email'
                   ref={emailRef}
                   onChange={(e) => handleOnChange(e, 'email')}
                 />
@@ -95,10 +95,10 @@ function Login() {
             </div>
             <div>
               <div className='form-group'>
-                <label>Password:</label>
                 <input
                   type={isShowPassword ? 'text' : 'password'}
                   name='password'
+                  placeholder='Password'
                   ref={passwordRef}
                   onChange={(e) => handleOnChange(e, 'password')}
                 />

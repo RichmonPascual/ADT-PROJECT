@@ -45,6 +45,7 @@ const Lists = () => {
 
   return (
     <div className='lists-container'>
+      <h1>Movie Page</h1>
       <div className='create-container'>
         <button
           type='button'

@@ -2,6 +2,9 @@
   display: flex;
   overflow: hidden;
   max-height: 100vh;
+  background: rgb(0,0,0);
+  background: linear-gradient(109.6deg, rgb(6, 2, 2) 32.4%, rgb(19, 1, 4) 98.8%);
+  color: white;
 }
 .Main .container {
   display: flex;
@@ -12,16 +15,17 @@
   padding: 1rem;
 }
 .Main .container .navigation {
-  background-color: rgb(48, 47, 48);
+  background-color: rgb(0, 0, 0);
   padding-top: 40px;
   height: 100vh;
-  color: #ccc;
+  border-right: 2px solid rgb(110, 110, 110);
+  color: rgb(255, 255, 255);
 }
 .Main .container .navigation ul {
-  list-style: none;
+  list-style:none;
   overflow: hidden;
   padding: 0;
-  margin: 0;
+  margin: 10;
 }
 
 .Main .container .navigation ul li {
@@ -34,6 +38,7 @@
 }
 .Main .container .navigation ul li a {
   text-decoration: none;
+  text-align: right;
 }
 
 .Main .container .navigation ul li.logout {

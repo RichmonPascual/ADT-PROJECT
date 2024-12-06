@@ -10,8 +10,14 @@ const Form = () => {
   const [movie, setMovie] = useState({});
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
-  let { movieId } = useParams();
+  let { movieId, userId } = useParams();
   const accessToken = localStorage.getItem('accessToken');
+  const [cast, setCast] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [videos, setVideos] = useState([]);
+  const [photos, setPhotos] = useState([]);
+
 
   const handleSearch = useCallback(() => {
     axios({
@@ -20,7 +26,7 @@ const Form = () => {
       headers: {
         Accept: 'application/json',
         Authorization:
-          'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5YTdiNmUyNGJkNWRkNjhiNmE1ZWFjZjgyNWY3NGY5ZCIsIm5iZiI6MTcyOTI5NzI5Ny4wNzMzNTEsInN1YiI6IjY2MzhlZGM0MmZhZjRkMDEzMGM2NzM3NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ZIX4EF2yAKl6NwhcmhZucxSQi1rJDZiGG80tDd6_9XI',
+          'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5M2Q4YTQwMGVlMzFkMzQ4MGYzNjdlMjk2OGMzODhhZSIsIm5iZiI6MTczMzE1MTAyNS4yNTQwMDAyLCJzdWIiOiI2NzRkYzkzMTc0NzM3NzhiYmQ5YWY3YzUiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.4wKA26LOjYKY3fGsk-zmp0YOvGr7YPfi_IWUf6W7MSE',
       },
     }).then((response) => {
       setSearchedMovieList(response.data.results);
@@ -39,7 +45,49 @@ const Form = () => {
       voteAverage: movie.vote_average,
       backdropPath: movie.backdrop_path,
       posterPath: movie.poster_path,
+      name: movie.cast
     });
+    axios
+      .get(`https://api.themoviedb.org/3/movie/${movie.id}/images`, {
+        headers: {
+          Accept: "application/json",
+          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5YTdiNmUyNGJkNWRkNjhiNmE1ZWFjZjgyNWY3NGY5ZCIsIm5iZiI6MTcyOTI5NzI5Ny4wNzMzNTEsInN1YiI6IjY2MzhlZGM0MmZhZjRkMDEzMGM2NzM3NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ZIX4EF2yAKl6NwhcmhZucxSQi1rJDZiGG80tDd6_9XI',
+        },
+      })
+      .then((response) => {
+        setPhotos(response.data.photos)
+      })
+      .catch(() => {
+        setError("Unable to load photos. Please try again later.");
+      });
+
+
+    // Fetch Videos
+    axios.get(`https://api.themoviedb.org/3/movie/${movie.id}/videos?language=en-US`, {
+      headers: {
+        Accept: "application/json",
+        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5YTdiNmUyNGJkNWRkNjhiNmE1ZWFjZjgyNWY3NGY5ZCIsIm5iZiI6MTcyOTI5NzI5Ny4wNzMzNTEsInN1YiI6IjY2MzhlZGM0MmZhZjRkMDEzMGM2NzM3NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ZIX4EF2yAKl6NwhcmhZucxSQi1rJDZiGG80tDd6_9XI',
+      },
+    })
+      .then(response => {
+        setVideos(response.data.results);
+      })
+      .catch(() => {
+        setError("Unable to load videos. Please try again later.");
+      });
+
+    axios.get(`https://api.themoviedb.org/3/movie/${movie.id}/credits?language=en-US`, {
+      headers: {
+        Accept: "application/json",
+        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5YTdiNmUyNGJkNWRkNjhiNmE1ZWFjZjgyNWY3NGY5ZCIsIm5iZiI6MTcyOTI5NzI5Ny4wNzMzNTEsInN1YiI6IjY2MzhlZGM0MmZhZjRkMDEzMGM2NzM3NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ZIX4EF2yAKl6NwhcmhZucxSQi1rJDZiGG80tDd6_9XI',
+      },
+    })
+      .then(response => {
+        setCast(response.data.cast);
+      })
+      .catch(() => {
+        setError("Unable to load cast information. Please try again later.");
+      });
   };
 
   const handleSave = async () => {
@@ -86,7 +134,7 @@ const Form = () => {
     }));
     setErrors((prevErrors) => ({
       ...prevErrors,
-      [name]: '', // Clear the specific field error if it exists
+      [name]: '',
     }));
   };
 
@@ -134,6 +182,7 @@ const Form = () => {
     }
   }, []);
 
+
   return (
     <>
       <h1>{movieId ? 'Edit' : 'Create'} Movie</h1>
@@ -156,7 +205,7 @@ const Form = () => {
               ))}
             </div>
           </div>
-          
+
         </>
       )}
       <hr />
@@ -175,7 +224,7 @@ const Form = () => {
             <input
               type='text'
               name='title'
-              value={movie.title || ''} 
+              value={movie.title || ''}
               onChange={handleChange}
             />
             {errors.title && <span className='error'>{errors.title}</span>}
@@ -183,7 +232,7 @@ const Form = () => {
           <div className='field'>
             Overview:
             <textarea
-              rows={10}
+              rows={3}
               name='overview'
               value={movie.overview || ''}
               onChange={handleChange}
@@ -219,16 +268,73 @@ const Form = () => {
               onChange={handleChange}
             />
           </div>
-          
-          <div className='butt'>
-          <button  type='button' onClick={handleSave}>
+
+          <h2>Videos</h2>
+          <div className="videos">
+            {videos.length > 0 ? (
+              videos.map((clip) => (
+                <div key={clip.id} className="video-item">
+                  <h3>{clip.name}</h3>
+                  <iframe
+                    src={`https://www.youtube.com/embed/${clip.key}`}
+                    title={clip.name}
+                    frameBorder="0"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              ))
+            ) : (
+              <p>No videos available.</p>
+            )}
+          </div>
+
+          <h2>Cast</h2>
+          <div className="cast">
+            {cast.length > 0 ? (
+              cast.map((actor) => (
+                <div key={actor.id} className="cast-item">
+                  <h3>{actor.name}</h3>
+                  <p>Character: {actor.character}</p>
+                  {actor.profile_path ? (
+                    <img
+                      src={`https://image.tmdb.org/t/p/w500/${actor.profile_path}`}
+                      alt={`Profile of ${actor.name}`}
+                    />
+                  ) : null}
+                </div>
+              ))
+            ) : (
+              <p>No cast information available.</p>
+            )}
+          </div>
+          <h3>Photos</h3>
+          <div className="movie-photos">
+            <div className="photo-grid">
+              {photos.length > 0 ? (
+                photos.map((image, idx) => (
+                  <img
+                    key={idx}
+                    src={`https://image.tmdb.org/t/p/original/${image.backdrop_path}`}
+                    alt={image.title || "Movie Photo"}
+                    className="movie-photo"
+                  />
+                ))
+              ) : (
+                <p>No photos available.</p>
+              )}
+            </div>
+          </div>
+
+        </form>
+
+        <div className='butt'>
+          <button type='button' onClick={handleSave}>
             Save
           </button>
           <button type='button' onClick={handleUpdate}>
             Update
           </button>
-          </div>
-        </form>
+        </div>
       </div>
     </>
   );

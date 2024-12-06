@@ -77,14 +77,15 @@ function Register() {
   return (
     <div className='Register'>
       <div className='main-container'>
-        <h3>Register</h3>
         {errorText && <div className="error-message">{errorText}</div>}
         <form>
           <div className='form-container'>
+          <h3>Register</h3>
+          <br></br>
             <div className='form-group'>
-              <label>Email:</label>
               <input
                 type='text'
+                placeholder='Email'
                 ref={emailInputRef}
                 onChange={(e) => handleInputChange(e, 'email')}
               />
@@ -93,8 +94,8 @@ function Register() {
               )}
             </div>
             <div className='form-group'>
-              <label>Password:</label>
               <input
+              placeholder='Password'
                 type={isPasswordVisible ? 'text' : 'password'}
                 ref={passwordInputRef}
                 onChange={(e) => handleInputChange(e, 'password')}
@@ -104,9 +105,9 @@ function Register() {
               )}
             </div>
             <div className='form-group'>
-              <label>First Name:</label>
               <input
                 type='text'
+                placeholder='First Name'
                 ref={firstNameInputRef}
                 onChange={(e) => handleInputChange(e, 'firstName')}
               />
@@ -115,16 +116,16 @@ function Register() {
               )}
             </div>
             <div className='form-group'>
-              <label>Middle Name:</label>
               <input
                 type='text'
+                placeholder='Middle Name'
                 onChange={(e) => handleInputChange(e, 'middleName')}
               />
             </div>
             <div className='form-group'>
-              <label>Last Name:</label>
               <input
                 type='text'
+                placeholder='Last Name'
                 ref={lastNameInputRef}
                 onChange={(e) => handleInputChange(e, 'lastName')}
               />
@@ -133,9 +134,9 @@ function Register() {
               )}
             </div>
             <div className='form-group'>
-              <label>Contact No:</label>
               <input
                 type='text'
+                placeholder='Contact No.'
                 ref={contactNoInputRef}
                 onChange={(e) => handleInputChange(e, 'contactNo')}
               />
@@ -144,7 +145,6 @@ function Register() {
               )}
             </div>
             <div className='form-group'>
-              <label>Role:</label>
               <select onChange={(e) => handleInputChange(e, 'role')}>
                 <option value=''>Select Role</option>
                 <option value='admin'>Admin</option>
@@ -191,7 +191,7 @@ function Register() {
             </div>
             <div className='login-container'>
             <Link to ="/">
-                <small>Don't have an account? Login</small>
+                <small>Already have an account? Login</small>
               </Link>
             </div>
           </div>
