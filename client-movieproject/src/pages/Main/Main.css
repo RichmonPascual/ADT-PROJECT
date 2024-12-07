@@ -28,7 +28,7 @@
   margin: 0;
   padding: 0;
   gap: 15px;
-  border-right: 2px solid rgb(37, 37, 37);
+  border-right: 2px solid rgb(255, 255, 255);
   color: red;
 }
 .Main .container .navigation ul li {

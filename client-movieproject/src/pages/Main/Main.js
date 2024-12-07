@@ -30,10 +30,10 @@ function Main() {
       <div className='container'>
         <div className='navigation'>
           <ul>
-            <h1 c>NETFLIX</h1>
+            <h1>NETFLIXY</h1>
             <br />
             <li className='Movie'>
-              <img src='home.png' width={33} onClick={() => navigate('/')} />
+              <img src='home.png' width={33} onClick={() => navigate('/home')} />
             </li>
             <li className='Menu'>
               <img src='interface.png' width={44} />

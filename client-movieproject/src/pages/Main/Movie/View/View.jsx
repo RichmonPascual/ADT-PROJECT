@@ -21,8 +21,10 @@ function View() {
           navigate('/');
         });
     }
-    return () => {};
+    return () => { };
   }, [movieId]);
+ 
+ 
   return (
     <div className='main-container'>
       {movie && (
@@ -33,47 +35,47 @@ function View() {
             </div>
           </div>
 
-          {/* Movie Details */}
           <div className="movie-details">
             <h3 className="movie-overview">{movie.overview}</h3>
           </div>
 
-          {movie.casts && movie.casts.length > 0 && (
-            <div className="section">
+          {movie.casts?.length ? (
+            <section className="section">
               <h2>Cast & Crew</h2>
               <ul className="cast-list">
-                {movie.casts.map((cast, index) => (
-                  <li key={index}>{cast.name}</li>
+                {movie.casts.map((castMember, index) => (
+                  <li key={index}>{castMember.name}</li>
                 ))}
               </ul>
-            </div>
-          )}
+            </section>
+          ) : null}
 
-          {/* Videos */}
-          {movie.videos && movie.videos.length > 0 && (
-            <div className="section">
+
+          {movie.videos?.length ? (
+            <section className="section">
               <h2>Videos</h2>
               <div className="video-gallery">
-                {movie.videos.map((video, index) => (
+                {movie.videos.map((videoItem, index) => (
                   <video key={index} controls>
-                    <source src={video.url} type="video/mp4" />
+                    <source src={videoItem.url} type="video/mp4" />
                   </video>
                 ))}
               </div>
-            </div>
-          )}
+            </section>
+          ) : null}
 
-          {/* Photos */}
-          {movie.photos && movie.photos.length > 0 && (
+
+          {movie.photos?.length ? (
             <div className="section">
               <h2>Photos</h2>
               <div className="photo-gallery">
-                {movie.photos.map((photo, index) => (
-                  <img key={index} src={photo.url} alt={`Movie Photo ${index + 1}`} />
+                {movie.photos.map((photo, idx) => (
+                  <img key={idx} src={photo.url} alt={`Movie Photo ${idx + 1}`} />
                 ))}
               </div>
             </div>
-          )}
+          ) : null}
+
         </>
       )}
     </div>

@@ -56,7 +56,7 @@ function Login() {
         console.log(res);
         //store response access token to localstorage
         localStorage.setItem('accessToken', res.data.access_token);
-        navigate('/');
+        navigate('/home');
         setStatus('idle');
       })
       .catch((e) => {
@@ -84,7 +84,7 @@ function Login() {
                 <input
                   type='text'
                   name='email'
-                  placeholder='email'
+                  placeholder='Email'
                   ref={emailRef}
                   onChange={(e) => handleOnChange(e, 'email')}
                 />
@@ -98,7 +98,7 @@ function Login() {
                 <input
                   type={isShowPassword ? 'text' : 'password'}
                   name='password'
-                  placeholder='password'
+                  placeholder='Password'
                   ref={passwordRef}
                   onChange={(e) => handleOnChange(e, 'password')}
                 />

@@ -1,48 +1,120 @@
-.Register{
+.main-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background: rgb(0,0,0);
-  background: linear-gradient(109.6deg, rgb(6, 2, 2) 32.4%, rgb(19, 1, 4) 98.8% ) ;
-  background-size: cover;
-  position: relative;
 }
+h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.Register{
+  background-image: url('background.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover; 
+  height: 100vh;
+}
+
 .form-container {
-    padding: 4rem 5rem;
-    border: 1px solid #ccc;
-    border-radius: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .form-container > div {
-    margin-bottom: 12px;
-  }
-  
-  .form-group {
-    display: flex;
-  }
-  
-  .form-group label {
-    width: 150px;
-    margin-right: 8px;
-    text-align: center;
-  }
-  .errors {
-    color: red;
-    font-size: 12px;
-  }
-  .submit-container {
-    margin-top: 12px;
-    text-align: center;
-  }
-  .register-container {
-    text-align: center;
-  }
-  .show-password {
-    margin-bottom: 1rem;
-    cursor: pointer;
-  }
+  padding: 4rem 5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0px;
+}
+.form-container > div {
+  margin-bottom: 12px;
+}
+
+.form-group {
+  display: flex;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.form-group label {
+font-size: 14px;
+color: #666666;
+margin-bottom: 5px;
+display: inline-block;
+}
+.errors {
+  color: red;
+  font-size: 12px;
+}
+.submit-container {
+  margin-top: 12px;
+  text-align: center;
+}
+.register-container {
+  text-align: center;
+}
+.show-password {
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+input {
+width: 250px;
+padding: 10px;
+margin-top: 5px;
+border: 1px solid #cccccc;
+border-radius: 5px;
+font-size: 14px;
+}
+
+.login-container {
+margin-top: 15px;
+}
+
+.login-container small {
+font-size: 14px;
+color: #ffffff;
+}
+
+.login-container a {
+color: #094f99;
+text-decoration: none;
+font-weight: bold;
+}
+
+.login-container a:hover {
+text-decoration: underline;
+}
+
+select {
+width: 100%; 
+max-width: 300px; 
+padding: 10px;
+font-size: 16px;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+border: 1px solid #cccccc; 
+border-radius: 4px; 
+background-color: #ffffff; 
+color: #333333; 
+appearance: none;
+transition: border-color 0.3s, box-shadow 0.3s;
+cursor: pointer;
+}
+
+select:hover {
+border-color: #007bff; 
+}
+
+select:focus {
+border-color: #007bff;
+outline: none;
+box-shadow: 0 0 4px rgba(0, 123, 255, 0.5); 
+}
+
+option {
+background-color: #ffffff; 
+color: #333333; 
+font-size: 16px;
+padding: 5px;
+}
+
